@@ -26,3 +26,4 @@ Things you may want to cover:
 * 坂本紗也華
 * 岡安海渡
 * 柏木翔大
+* 南條孝太朗
