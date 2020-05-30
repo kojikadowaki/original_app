@@ -25,3 +25,4 @@ Things you may want to cover:
 * 門脇光志
 * 坂本紗也華
 * 岡安海渡
+* 柏木翔大
