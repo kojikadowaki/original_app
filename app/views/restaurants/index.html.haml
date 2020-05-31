@@ -1,0 +1,108 @@
+.header
+  .header__tokyo
+    = link_to '東京版', '#'
+  .header__aiti
+    = link_to '愛知版', '#'
+  .header__osaka
+    = link_to '大阪版', '#'
+  .header__hukuoka
+    = link_to '福岡版', '#'
+  .header__hapiteku
+    = link_to 'ハピテクとは', '#'
+  .header__posting
+    =link_to '掲載希望はこちら', '#'
+.main_box
+  .top_box
+    .top_box__one_sentence
+      ＼お店の味をおうちでも／
+    .top_box__title
+      %p ハピテク
+      %p HAPPY TAKEOUT
+    .top_box__tokyo
+      【東京版】
+  .change_box
+    .change_box__fight
+      テイクアウトで飲食店を応援するサイト
+    .change_box__area
+      .change_box__area--aiti
+        = link_to "愛知版", '#'
+      .change_box__area--asaka
+        = link_to "大阪版", '#'
+      .change_box__area--hukuaka
+        = link_to "福岡版", '#'
+  .explain_box
+    .explain_box__bag_illustration
+  
+    .explain_box__content
+      %span.explain_box__content--top_sentence “いつもお店で食べていた味を、家でも楽しもう”
+      %span.explain_box__content--bottom_sentence をコンセプトに,テイクアウトができる飲食店を探せるサービスです。
+      ご自宅やオフィスの近くなど好きなエリアから検索。テイクアウトできる料理だけでなく、店長さんからのメッセージも閲覧でき、
+      今まで知らなかったお店を発見するきっかけになるかも。
+  .one_sentence_box
+    %span.one_sentence_box--first_phrase ハピテクでお店を探して
+    %span.one_sentence_box--second_phrase ＼いつもの味を家で楽しもう／
+  .illustration_box
+    .illustration_box__left_box
+      .illustration_box__left_box--word
+        HAPPY
+      .illustration_box__left_box--human_illustration
+
+      .illustration_box__left_box--bag_illustration
+    
+    .illustration_box__plus
+      +
+    .illustration_box__center_box
+      .illustration_box__center_box--word
+        HAPPY
+      .illustration_box__center_box--humans_illustration
+
+    .illustration_box__arrow
+      ▶️
+    .illustration_box__right_box
+      .illustration_box__right_box--words
+        MORE
+        %br HAPPY
+      .illustration_box__center_box--humans_cup_illustration
+  .covid_19_warming
+    新型コロナウイルス感染拡大・緊急事態宣言の影響により
+    多くの飲食店が休業や時短営業を余儀なくされ、深刻な状況が続いています。​
+    いつも行っていたお店にも、行ってみたいなと思っていたお店にも足を運ぶことが難しくなっているいま、
+    一皿でも多くのテイクアウトが広まることで飲食店の救済に繋がればと思いこのサイトをつくりました。
+    ハピテクが少しでも多くの飲食店さまのお力となり、共にこの状況を乗り越えていくための支援になればと思います。
+  .area_map
+    .area_map__finding_shop
+      お店をさがす（東京）
+    .area_map__each_area
+      %ul
+        %li
+          %a(href="#")
+            = image_tag 'icon_01-100.webp'
+        %li
+          %a(href="#")
+            = image_tag 'icon_02-100.webp'
+        %li
+          %a(href="#")
+            = image_tag 'icon_03-100.webp'
+        %li
+          %a(href="#")
+            = image_tag 'icon_04-100.webp'
+        %li
+          %a(href="#")
+            = image_tag 'icon_05-100.webp'
+        %li
+          %a(href="#")
+            = image_tag 'icon_06-100.webp'
+        %li
+          %a(href="#")
+            = image_tag 'icon_07-100.webp'
+        %li
+          %a(href="#")
+            = image_tag 'icon_08-100.webp'
+    .area_map__all_map
+      %a(href="#")
+        = image_tag 'chizu-100.webp'
+  .application
+    .application__title
+      掲載お申し込み
+    .application__calling
+      お問い合わせはこちらから
