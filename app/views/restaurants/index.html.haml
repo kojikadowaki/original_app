@@ -106,3 +106,11 @@
       掲載お申し込み
     .application__calling
       お問い合わせはこちらから
+
+-# 以下の部分はログイン確認用の仮実装
+.user_test
+  - if user_signed_in?
+    = link_to 'logout', destroy_user_session_path, method: :delete
+  - else
+    = link_to 'sign up', new_user_registration_path
+    = link_to 'sign in', new_user_session_path
