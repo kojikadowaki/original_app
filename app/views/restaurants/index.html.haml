@@ -81,6 +81,18 @@
         = link_to 'ハピテクとは', '#', id: "header__button"
       %li.menu__small_box
         =link_to '掲載希望はこちら', '#', id: "header__button"
+  .header__tokyo
+    = link_to '東京版', '#'
+  .header__aiti
+    = link_to '愛知版', '#'
+  .header__osaka
+    = link_to '大阪版', '#'
+  .header__hukuoka
+    = link_to '福岡版', '#'
+  .header__hapiteku
+    = link_to 'ハピテクとは', '#'
+  .header__posting
+    =link_to '掲載希望はこちら', '#'
 .background
   .main_box
     .top_box
@@ -181,14 +193,53 @@
     .application
       .application__title
         掲載お申し込み
+      .application__content
+        ハピテクはどなたでも無料で掲載可能！
+        %br
+        ライン公式アカウントより簡単登録できます。
+      .application__info
+        ハピテクLINE公式アカウントを
+        %br
+        友だち追加！
+        .application__info__link
+          .application__info__link--line
+            = image_tag 'https://static.wixstatic.com/media/b6e7b2_b8cc1c0b36a54eb786a908b7d4d7dc41~mv2.png/v1/fill/w_172,h_170,al_c,q_85,usm_0.66_1.00_0.01/LINE_APP.webp'
+          .application__info__link--symbol
+            = image_tag 'sozai_cman_jp_20200608010526.jpg'
+          .application__info__link__box
+            .application__info__link__box--text
+              友だち追加はこちらから！
+            .application__info__link__box--url
+              https://lin.ee/2tqNNeCLM
+          .application__info__link__qr
+            = image_tag 'https://static.wixstatic.com/media/b6e7b2_518cbc89ec1f473f9fce37fda9e9b0de~mv2.png/v1/fill/w_310,h_294,al_c,q_85,usm_0.66_1.00_0.01/line_QR_L.webp'
+          .application__info__link__text
+            PCでご覧の方はQRコードから！
       .application__calling
         お問い合わせはこちらから
+        .application__mail
+          = image_tag 'https://www.civillink.net/esozai//img/pics2287.gif'
+  .footer
+    .footer__one
+    .footer__two
+    .footer__three
+    .footer__four
+    .footer__service_name
+      ハピテク｜HAPPY TAKEOUT
+    .footer__management
+      ​運営元：株式会社プレシャスパートナーズ
+    .footer__terms
+      掲載規約
+    .footer__five
+    .footer__six
+    .footer__seven
+    .footer__eight
 
--# 以下の部分はログイン確認用の仮実装
-.user_test
-  - if user_signed_in?
-    = link_to 'edit',   edit_user_registration_path
-    = link_to 'logout', destroy_user_session_path, method: :delete
-  - else
-    = link_to 'sign up', new_user_registration_path
-    = link_to 'sign in', new_user_session_path
+      
+  -# 以下の部分はログイン確認用の仮実装
+  .user_test
+    - if user_signed_in?
+      = link_to 'logout', destroy_user_session_path, method: :delete
+    - else
+      = link_to 'sign up', new_user_registration_path
+      = link_to 'sign in', new_user_session_path
