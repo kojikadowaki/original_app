@@ -11,106 +11,147 @@
     = link_to 'ハピテクとは', '#'
   .header__posting
     =link_to '掲載希望はこちら', '#'
-.main_box
-  .top_box
-    .top_box__one_sentence
-      ＼お店の味をおうちでも／
-    .top_box__title
-      %p ハピテク
-      %p HAPPY TAKEOUT
-    .top_box__tokyo
-      【東京版】
-  .change_box
-    .change_box__fight
-      テイクアウトで飲食店を応援するサイト
-    .change_box__area
-      .change_box__area--aiti
-        = link_to "愛知版", '#'
-      .change_box__area--asaka
-        = link_to "大阪版", '#'
-      .change_box__area--hukuaka
-        = link_to "福岡版", '#'
-  .explain_box
-    .explain_box__bag_illustration
-  
-    .explain_box__content
-      %span.explain_box__content--top_sentence “いつもお店で食べていた味を、家でも楽しもう”
-      %span.explain_box__content--bottom_sentence をコンセプトに,テイクアウトができる飲食店を探せるサービスです。
-      ご自宅やオフィスの近くなど好きなエリアから検索。テイクアウトできる料理だけでなく、店長さんからのメッセージも閲覧でき、
-      今まで知らなかったお店を発見するきっかけになるかも。
-  .one_sentence_box
-    %span.one_sentence_box--first_phrase ハピテクでお店を探して
-    %span.one_sentence_box--second_phrase ＼いつもの味を家で楽しもう／
-  .illustration_box
-    .illustration_box__left_box
-      .illustration_box__left_box--word
-        HAPPY
-      .illustration_box__left_box--human_illustration
-
-      .illustration_box__left_box--bag_illustration
+.background
+  .main_box
+    .top_box
+      .top_box__one_sentence
+        ＼お店の味をおうちでも／
+      .top_box__title
+        %p ハピテク
+        %p HAPPY TAKEOUT
+      .top_box__tokyo
+        【東京版】
+    .change_box
+      .change_box__fight
+        テイクアウトで飲食店を応援するサイト
+      .change_box__area
+        .change_box__area--aiti
+          = link_to "愛知版", '#'
+        .change_box__area--asaka
+          = link_to "大阪版", '#'
+        .change_box__area--hukuaka
+          = link_to "福岡版", '#'
+    .explain_box
+      .explain_box__bag_illustration
     
-    .illustration_box__plus
-      +
-    .illustration_box__center_box
-      .illustration_box__center_box--word
-        HAPPY
-      .illustration_box__center_box--humans_illustration
+      .explain_box__content
+        %span.explain_box__content--top_sentence “いつもお店で食べていた味を、家でも楽しもう”
+        %span.explain_box__content--bottom_sentence をコンセプトに,テイクアウトができる飲食店を探せるサービスです。
+        ご自宅やオフィスの近くなど好きなエリアから検索。テイクアウトできる料理だけでなく、店長さんからのメッセージも閲覧でき、
+        今まで知らなかったお店を発見するきっかけになるかも。
+    .one_sentence_box
+      %span.one_sentence_box--first_phrase ハピテクでお店を探して
+      %span.one_sentence_box--second_phrase ＼いつもの味を家で楽しもう／
+    .illustration_box
+      .illustration_box__left_box
+        .illustration_box__left_box--word
+          HAPPY
+        .illustration_box__left_box--human_illustration
 
-    .illustration_box__arrow
-      ▶️
-    .illustration_box__right_box
-      .illustration_box__right_box--words
-        MORE
-        %br HAPPY
-      .illustration_box__center_box--humans_cup_illustration
-  .covid_19_warming
-    新型コロナウイルス感染拡大・緊急事態宣言の影響により
-    多くの飲食店が休業や時短営業を余儀なくされ、深刻な状況が続いています。​
-    いつも行っていたお店にも、行ってみたいなと思っていたお店にも足を運ぶことが難しくなっているいま、
-    一皿でも多くのテイクアウトが広まることで飲食店の救済に繋がればと思いこのサイトをつくりました。
-    ハピテクが少しでも多くの飲食店さまのお力となり、共にこの状況を乗り越えていくための支援になればと思います。
-  .area_map
-    .area_map__finding_shop
-      お店をさがす（東京）
-    .area_map__each_area
-      %ul
-        %li
-          %a(href="#")
-            = image_tag 'icon_01-100.webp'
-        %li
-          %a(href="#")
-            = image_tag 'icon_02-100.webp'
-        %li
-          %a(href="#")
-            = image_tag 'icon_03-100.webp'
-        %li
-          %a(href="#")
-            = image_tag 'icon_04-100.webp'
-        %li
-          %a(href="#")
-            = image_tag 'icon_05-100.webp'
-        %li
-          %a(href="#")
-            = image_tag 'icon_06-100.webp'
-        %li
-          %a(href="#")
-            = image_tag 'icon_07-100.webp'
-        %li
-          %a(href="#")
-            = image_tag 'icon_08-100.webp'
-    .area_map__all_map
-      %a(href="#")
-        = image_tag 'chizu-100.webp'
-  .application
-    .application__title
-      掲載お申し込み
-    .application__calling
-      お問い合わせはこちらから
+        .illustration_box__left_box--bag_illustration
+      
+      .illustration_box__plus
+        +
+      .illustration_box__center_box
+        .illustration_box__center_box--word
+          HAPPY
+        .illustration_box__center_box--humans_illustration
 
--# 以下の部分はログイン確認用の仮実装
-.user_test
-  - if user_signed_in?
-    = link_to 'logout', destroy_user_session_path, method: :delete
-  - else
-    = link_to 'sign up', new_user_registration_path
-    = link_to 'sign in', new_user_session_path
+      .illustration_box__arrow
+        ▶️
+      .illustration_box__right_box
+        .illustration_box__right_box--words
+          MORE
+          %br HAPPY
+        .illustration_box__center_box--humans_cup_illustration
+    .covid_19_warming
+      新型コロナウイルス感染拡大・緊急事態宣言の影響により
+      多くの飲食店が休業や時短営業を余儀なくされ、深刻な状況が続いています。​
+      いつも行っていたお店にも、行ってみたいなと思っていたお店にも足を運ぶことが難しくなっているいま、
+      一皿でも多くのテイクアウトが広まることで飲食店の救済に繋がればと思いこのサイトをつくりました。
+      ハピテクが少しでも多くの飲食店さまのお力となり、共にこの状況を乗り越えていくための支援になればと思います。
+    .area_map
+      .area_map__finding_shop
+        お店をさがす（東京）
+      .area_map__each_area
+        %ul
+          %li
+            %a(href="#")
+              = image_tag 'icon_01-100.webp'
+          %li
+            %a(href="#")
+              = image_tag 'icon_02-100.webp'
+          %li
+            %a(href="#")
+              = image_tag 'icon_03-100.webp'
+          %li
+            %a(href="#")
+              = image_tag 'icon_04-100.webp'
+          %li
+            %a(href="#")
+              = image_tag 'icon_05-100.webp'
+          %li
+            %a(href="#")
+              = image_tag 'icon_06-100.webp'
+          %li
+            %a(href="#")
+              = image_tag 'icon_07-100.webp'
+          %li
+            %a(href="#")
+              = image_tag 'icon_08-100.webp'
+      .area_map__all_map
+        %a(href="#")
+          = image_tag 'chizu-100.webp'
+    .application
+      .application__title
+        掲載お申し込み
+      .application__content
+        ハピテクはどなたでも無料で掲載可能！
+        %br
+        ライン公式アカウントより簡単登録できます。
+      .application__info
+        ハピテクLINE公式アカウントを
+        %br
+        友だち追加！
+        .application__info__link
+          .application__info__link--line
+            = image_tag 'https://static.wixstatic.com/media/b6e7b2_b8cc1c0b36a54eb786a908b7d4d7dc41~mv2.png/v1/fill/w_172,h_170,al_c,q_85,usm_0.66_1.00_0.01/LINE_APP.webp'
+          .application__info__link--symbol
+            = image_tag 'sozai_cman_jp_20200608010526.jpg'
+          .application__info__link__box
+            .application__info__link__box--text
+              友だち追加はこちらから！
+            .application__info__link__box--url
+              https://lin.ee/2tqNNeCLM
+          .application__info__link__qr
+            = image_tag 'https://static.wixstatic.com/media/b6e7b2_518cbc89ec1f473f9fce37fda9e9b0de~mv2.png/v1/fill/w_310,h_294,al_c,q_85,usm_0.66_1.00_0.01/line_QR_L.webp'
+          .application__info__link__text
+            PCでご覧の方はQRコードから！
+      .application__calling
+        お問い合わせはこちらから
+        .application__mail
+          = image_tag 'https://www.civillink.net/esozai//img/pics2287.gif'
+  .footer
+    .footer__one
+    .footer__two
+    .footer__three
+    .footer__four
+    .footer__service_name
+      ハピテク｜HAPPY TAKEOUT
+    .footer__management
+      ​運営元：株式会社プレシャスパートナーズ
+    .footer__terms
+      掲載規約
+    .footer__five
+    .footer__six
+    .footer__seven
+    .footer__eight
+
+      
+  -# 以下の部分はログイン確認用の仮実装
+  .user_test
+    - if user_signed_in?
+      = link_to 'logout', destroy_user_session_path, method: :delete
+    - else
+      = link_to 'sign up', new_user_registration_path
+      = link_to 'sign in', new_user_session_path
