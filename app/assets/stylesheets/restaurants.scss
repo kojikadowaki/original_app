@@ -62,6 +62,7 @@ li{
 }
 .background{
   background-color: #f8f8f8;
+  position: relative;
   .main_box{
     background-color: #fff;
     margin: 100px auto 0;
@@ -244,4 +245,260 @@ li{
       color: #555555;
     }
   }
+.background {
+  background-color: #fff;
+  width: 900px;
+  margin: 0 auto;
+  height: 2700px;
+  position: relative;
+}
+
+
+.area_map {
+  background-color: #fff;
+  width: 900px;
+
+  &__finding_shop {
+    letter-spacing: 5px;
+    border-radius: 40px 40px 40px 40px;
+    background-color: rgba(255, 200, 36, 1);
+    position: relative;
+    display: inline-block;
+    margin: 1.5em 0;
+    left: 220px;
+    padding: 7px 10px;
+    width: 420px;
+    height: 45px;
+    font-size: 25px;
+    text-align: center;
+  }
+
+  &__finding_shop:before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -15px;
+    border: 15px solid transparent;
+    border-top: 15px solid rgba(255, 200, 36, 1);
+  }
+
+  img {
+    max-width: 100%;
+   }
+  
+  &__each_area ul {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
+  }
+  
+  &__each_area li {
+    height: 200px;
+    width: 180px;
+    margin: 10px;
+  }
+
+  &__all_map {
+    width: 580px;
+    height: 380px;
+    margin: 0 auto;
+    margin-bottom: 70px;
+  }
+}
+
+.application {
+  width: 880px;
+  height: 5px;
+  border-top: 4px dotted rgba(0, 0, 0, 1);
+}
+
+.application {
+  width: 900px;
+
+  &__title {
+    letter-spacing: 5px;
+    border-radius: 40px 40px 40px 40px;
+    background-color: rgba(255, 200, 36, 1);
+    position: relative;
+    display: inline-block;
+    margin: 1.5em 0;
+    left: 220px;
+    padding: 7px 10px;
+    width: 420px;
+    height: 45px;
+    font-size: 25px;
+    text-align: center;
+  }
+
+  &__title:before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -15px;
+    border: 15px solid transparent;
+    border-top: 15px solid rgba(255, 200, 36, 1);
+  }
+
+  &__content {
+    font-size: 18px;
+    line-height: 1.6em;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  &__info {
+    width: 568px;
+    height: 464px;
+    font-size: 25px;
+    line-height: 1.6em;
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow:0px 0px 10px;
+    border:1px solid #000;
+  }
+
+  &__info__link {
+    width: 487px;
+    height: 147px;
+    margin: 0 auto;
+    margin-top: 20px;
+    position: relative;
+    border: solid;
+    border-color: #C0C0C0;
+    border-radius: 10px;
+
+    img {
+      max-width: 100%;
+     }
+      
+      &--line {
+        width: 85px;
+        height: 86px;
+        position: absolute;
+        top: 30px;
+        left: 30px
+      }
+
+      &--symbol {
+        width: 85px;
+        height: 86px;
+        background-color: #fff;
+        position: absolute;
+        top: 30px;
+        left: 130px;
+      }
+  }
+      &__info__link__box {
+        width: 250px;
+        height: 86px;
+        position: absolute;
+        top: 40px;
+        left: 210px;
+
+        &--text{
+          font-size: 20px;
+          font-weight: bold;
+          text-align: left
+        }
+
+        &--url {
+          font-size: 15px;
+          text-align: left
+        }
+      }
+
+      &__info__link__qr {
+        width: 147px;
+        height: 155px;
+        position: absolute;
+        top: 180px;
+        left: 170px;
+        img {
+          max-width: 100%;
+         }
+      }
+
+      &__info__link__text {
+        width: 200px;
+        height: 10px;
+        font-size: 12px;
+        position: absolute;
+        top: 305px;
+        left: 150px;
+      }
+      
+      &__calling {
+        height: 62px;
+        min-height: 22px;
+        width: 360px;
+        margin: 0 auto;
+        margin-top: 35px;
+        text-align: center;
+        color: rgb(168, 82, 88);
+        cursor: pointer;
+        border-color: #FFD5EC;
+        background-color: #FFD5EC;
+        border-radius: 20em;
+        box-shadow: 10px 10px;
+        border:1px solid;
+        line-height: 50px;
+        position: relative;
+      }
+
+      &__mail {
+        height: 40px;
+        width: 50px;
+        position: absolute;
+        top: 10px;
+        left: 15px;
+        img {
+          max-width: 100%;
+         }
+      }
+}
+
+.footer {
+  height: 150px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  background-color: #FFD700;
+  
+  &__one, &__eight {
+    height: 8px;
+    background-color: #FFD700;
+  }
+
+  &__two, &__seven {
+    height: 8px;
+    background-color: #fff;
+  }
+
+  &__three, &__six {
+    height: 4px;
+    background-color: #FFD700;
+  }
+
+  &__four, &__five {
+    height: 4px;
+    background-color: #fff;
+  }
+
+  &__service_name {
+    height: 25px;
+    font-size: 16px;
+    margin-top: 10px;
+    text-align: center;
+   }
+   &__management, &__terms {
+    height: 25px;
+    font-size: 12px;
+    margin-top: 10px;
+    text-align: center;
+   }
+}
 }
