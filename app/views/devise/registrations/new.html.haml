@@ -1,29 +1,39 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :name
-    %br/
-    = f.text_field :name, autocomplete: "name"
-  .field
-    = f.label :phone_number
-    %br/
-    = f.text_field :phone_number, autocomplete: "phone_number"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+.user-main
+  .user-wrapper
+    = render 'devise/shared/user_header'
+
+    .user-form
+      %h2.user-form__title 新規会員登録
+
+      .user-form__content
+        %p.user-form__info ​*は必須項目となりますので、必ずご入力ください。​
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          .user-form__field
+            = f.label :email, class: 'user-form__label--required'
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: 'user-form__email-field'
+            = render 'error_msgs', { resource: resource, target: :email }
+          .user-form__field
+            = f.label :name, class: 'user-form__label'
+            = f.text_field :name, autocomplete: "name", placeholder: '例) ハピテク太郎', class: 'user-form__name-field'
+            = render 'error_msgs', { resource: resource, target: :name }
+          .user-form__field
+            = f.label :phone_number, class: 'user-form__label'
+            = f.text_field :phone_number, autocomplete: "phone_number",
+                           placeholder: 'ハイフン無し(10〜11桁)',
+                           class: 'user-form__phone_number-field'
+            = render 'error_msgs', { resource: resource, target: :phone_number }
+          .user-form__field
+            = f.label :password, class: 'user-form__label--required'
+            = f.password_field :password, autocomplete: "new-password",
+                              placeholder: "#{@minimum_password_length}文字以上",
+                              class: 'user-form__password-field'
+            = render 'error_msgs', { resource: resource, target: :password }
+          .user-form__field
+            = f.label :password_confirmation, class: 'user-form__label--required'
+            = f.password_field :password_confirmation, autocomplete: "new-password",
+                              placeholder: "#{@minimum_password_length}文字以上",
+                              class: 'user-form__password-field'
+            = render 'error_msgs', { resource: resource, target: :password_confirmation }
+          .user-form__actions
+            = f.submit "登録", class: 'user-form__submit-button'
+            = link_to "ログイン", new_user_session_path, class: 'user-form__login-path'
