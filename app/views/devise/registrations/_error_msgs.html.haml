@@ -1,0 +1,6 @@
+- if resource.errors[target].any?
+  %ul.error-messages
+    - resource.errors[target].each do |message|
+      %li.error-messages__item
+        = I18n.t target, scope: [:activerecord, :attributes, :user]
+        = message

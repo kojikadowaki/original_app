@@ -1,17 +1,28 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.user-main
+  .user-wrapper
+    = render 'devise/shared/user_header'
+
+    .user-form
+      %h2.user-form__title ログイン
+
+      .user-form__content
+        - if flash[:alert]
+          %p.error-messages{ style: 'text-align: center;' }
+            = flash[:alert]
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .user-form__field
+            = f.label :email, class: 'user-form__label'
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: 'user-form__email-field'
+            = render 'devise/registrations/error_msgs', { resource: resource, target: :email }
+          .user-form__field
+            = f.label :password, class: 'user-form__label'
+            = f.password_field :password, autocomplete: "current-password", class: 'user-form__password-field'
+            = render 'devise/registrations/error_msgs', { resource: resource, target: :password }
+          - if devise_mapping.rememberable?
+            .user-form__field
+              = f.check_box :remember_me, class: 'user-form__chkbox'
+              = f.label :remember_me, class: 'user-form__label', style: 'display: inline;'
+          .user-form__actions
+            = f.submit "ログイン", class: 'user-form__submit-button'
+            = link_to "新規会員登録", new_user_registration_path, class: 'user-form__login-path'
+
