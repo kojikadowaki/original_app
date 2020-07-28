@@ -1,3 +1,4 @@
 class MenuImage < ApplicationRecord
-  belongs_to :restaurant, optional:true
+  mount_uploader :url, ImageUploader
+  belongs_to :restaurant, optional: true
 end
