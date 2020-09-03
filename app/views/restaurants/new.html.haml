@@ -1,169 +1,158 @@
-.wrapper
-  -# .header
-  -#   .header__tokyo
-  -#     = link_to '東京版', '#'
-  -#   .header__aiti
-  -#     = link_to '愛知版', '#'
-  -#   .header__osaka
-  -#     = link_to '大阪版', '#'
-  -#   .header__hukuoka
-  -#     = link_to '福岡版', '#'
-  -#   .header__hapiteku
-  -#     = link_to 'ハピテクとは', '#'
-  -#   .header__posting
-  -#     = link_to '掲載希望はこちら', '#'
+= render partial: "header"
 
-  .main_box
-    .main_box__head
-      .main_box__head--title
-        掲載お申し込み
+.main_box
+  .main_box__head
+    .main_box__head--title
+      掲載お申し込み
 
-      .main_box__head--description
-        ハピテク(仮)はどなたでも無料で掲載することができます。
-        %br
-        簡単登録ですぐに掲載可能！お気軽にお申し込みください。
+    .main_box__head--description
+      ハピテク(仮)はどなたでも無料で掲載することができます。
+      %br
+      簡単登録ですぐに掲載可能！お気軽にお申し込みください。
 
-      .main_box__head--notes
-        ご希望の掲載内容をご入力ください。​
-        %br
-        *は必須項目となりますので、必ずご入力ください。​
+    .main_box__head--notes
+      ご希望の掲載内容をご入力ください。​
+      %br
+      *は必須項目となりますので、必ずご入力ください。​
 
-    .main_box__form
-      .main_box__form--title
-        【掲載内容登録】
-      
-      .main_box__form--items
-        = form_for [@restaurant] do |f|
-          .posting_info
-            掲載情報
-            .posting_info--restaurant_info
-              #name
-                = f.label :name, "店名*", class: "label"
-                %br
-                = f.text_field :name, placeholder: "例) ハピテク飯店 渋谷道玄坂店", class: "form_box"
-                .additional_explanation
-                  同一店名で複数店舗ある場合は店舗名もご入力ください。
-
-              #opening_hours
-                = f.label :opening_hours, "営業時間/定休日*", class: "label"
-                %br
-                = f.text_field :opening_hours, placeholder: "例) 10:00〜23:00(L.O.22:30)／定休日:水(TAKEOUTは〜21:00)", class: "form_box"
-                .additional_explanation
-                  テイクアウト販売を行っている時間が営業時間の一部である場合は、その旨ご入力ください。
-
-              #phone_number
-                = f.label :phone_number, "電話番号*", class: "label"
-                %br
-                = f.text_field :phone_number, placeholder: "例) 0311111111", class: "form_box"
-                .additional_explanation
-                  半角・ハイフンなしでご入力お願いします。
-
-              #post_code
-                = f.label :post_code, "郵便番号*", class: "label"
-                %br
-                = f.text_field :post_code, placeholder: "例) 1600023", class: "form_box"
-                .additional_explanation
-                  半角・ハイフンなしでご入力お願いします。
-
-              #address
-                = f.label :address, "住所*", class: "label"
-                %br
-                = f.text_field :address, placeholder: "例) 東京都渋谷区道玄坂1-1-1 道玄坂ビル2階", class: "form_box"
-
-              #url
-                = f.label :url, "お店のURL", class: "label"
-                %br
-                = f.text_field :url, placeholder: "自社HPやグルメサイトなどのURLをひとつだけご入力下さい。", class: "form_box"
-
-            .posting_info--restaurant_menu
-              #content
-                掲載メニュー*
-                .additional_explanation
-                  おすすめのメニューを５つご入力ください。
-                = f.fields_for :menus do |menu|
-                  .posting_info--restaurant_menu
-                    = menu.label :name, "メニュー", class: "label", id: "menu"
-                    %br
-                    = menu.text_field :name, placeholder: "麻婆豆腐", class: "form_box"
-                    %br
-                    = menu.label :price, "価格", class: "label"
-                    %br
-                    = menu.number_field :price, placeholder: "0", class: "form_box", style: "text-align: right; "
-                    円
-                    %br
-                    ーーーーーーーーーーーーーーーーーーーーーーーーーーー
-
-              #menu_tax 
-                = f.label :menu_tax, "メニュー消費税表記*", class:"label"
-                = f.collection_select(:menu_tax_id, MenuTax.all, :id, :menu_tax, {prompt: "選択して下さい"}, {class:'form-box'})
-
-
-            .posting_info--restaurant_comment
-              = f.fields_for :comment do |comment|
-                #comment_description
-                  = comment.label :description, "コメント*", class: "label"
-                  %br
-                  = comment.text_area :description, placeholder: "テイクアウトを始めたきっかけ・取り組んでいること・おすすめメニューなどのPR内容を自由にご入力ください。", class: 'form_box_exp'
-                
-                #comment_image
-                  = comment.label :image_url, "掲載写真*", class: "label"
-                  %br
-                  = comment.file_field :image_url, class: "image_file"
-
-                #comment_video
-                  = comment.label :video_url, "掲載動画", class: "label"
-                  %br
-                  = comment.text_field :video_url, placeholder: "掲載したいyoutube動画のURLを貼りつけて下さい", class: "form_box"
-                  .additional_explanation
-                  掲載動画はyoutubeへ既にアップロード済の動画のみに限らせていただきます。掲載したい動画のURLを貼りつけて下さい。
-
-  
-            .posting_info--restaurant_menu--images
-              #menu_images
-                メニュー写真*
-                %br
-                #previews
-                  - if @restaurant.persisted?
-                    - @restaurant.menu_images.each_with_index do |image, i|
-                      = image_tag "#{image.image}", data: { index: i}, width: "100", height: '100'
-                = f.fields_for :menu_images do |image|
-                  .js-file_group{"data-index" => "#{image.index}"}
-                    = image.file_field :url, class: 'js-file'
-                    %br
-                    %span.js-remove 削除
-                  - if @restaurant.persisted?
-                    = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-                - if @restaurant.persisted?
-                  .js-file_group{"data-index" => "#{@restaurant.menu_images.count}"}
-                    = file_field_tag :image, name: "restaurant[menu_images_attributes][#{@restaurant.menu_images.count}][image]", class: 'js-file'
-                    .js-remove 削除
-
-              .additional_explanation
-              メニュー写真は１枚必須、最大３枚まで掲載可能です。
+  .main_box__form
+    .main_box__form--title
+      【掲載内容登録】
+    
+    .main_box__form--items
+      = form_for [@restaurant] do |f|
+        .posting_info
+          掲載情報
+          .posting_info--restaurant_info
+            #name
+              = f.label :name, "店名*", class: "label"
               %br
-              .more_information
-                = link_to '​サイズや掲載規程は、こちらからご確認下さい＞＞', '#'
+              = f.text_field :name, placeholder: "例) ハピテク飯店 渋谷道玄坂店", class: "form_box"
+              .additional_explanation
+                同一店名で複数店舗ある場合は店舗名もご入力ください。
 
-          .contact_info
-            ご担当者様情報
-            = f.fields_for :contact_information do |contact|
-              #name
-                = contact.label :name, "ご担当者名*", class: "label"
+            #opening_hours
+              = f.label :opening_hours, "営業時間/定休日*", class: "label"
+              %br
+              = f.text_field :opening_hours, placeholder: "例) 10:00〜23:00(L.O.22:30)／定休日:水(TAKEOUTは〜21:00)", class: "form_box"
+              .additional_explanation
+                テイクアウト販売を行っている時間が営業時間の一部である場合は、その旨ご入力ください。
+
+            #phone_number
+              = f.label :phone_number, "電話番号*", class: "label"
+              %br
+              = f.text_field :phone_number, placeholder: "例) 0311111111", class: "form_box"
+              .additional_explanation
+                半角・ハイフンなしでご入力お願いします。
+
+            #post_code
+              = f.label :post_code, "郵便番号*", class: "label"
+              %br
+              = f.text_field :post_code, placeholder: "例) 1600023", class: "form_box"
+              .additional_explanation
+                半角・ハイフンなしでご入力お願いします。
+
+            #address
+              = f.label :address, "住所*", class: "label"
+              %br
+              = f.text_field :address, placeholder: "例) 東京都渋谷区道玄坂1-1-1 道玄坂ビル2階", class: "form_box"
+
+            #url
+              = f.label :url, "お店のURL", class: "label"
+              %br
+              = f.text_field :url, placeholder: "自社HPやグルメサイトなどのURLをひとつだけご入力下さい。", class: "form_box"
+
+          .posting_info--restaurant_menu
+            #content
+              掲載メニュー*
+              .additional_explanation
+                おすすめのメニューを５つご入力ください。
+              = f.fields_for :menus do |menu|
+                .posting_info--restaurant_menu
+                  = menu.label :name, "メニュー", class: "label", id: "menu"
+                  %br
+                  = menu.text_field :name, placeholder: "麻婆豆腐", class: "form_box"
+                  %br
+                  = menu.label :price, "価格", class: "label"
+                  %br
+                  = menu.number_field :price, placeholder: "0", class: "form_box", style: "text-align: right; "
+                  円
+                  %br
+                  ーーーーーーーーーーーーーーーーーーーーーーーーーーー
+
+            #menu_tax 
+              = f.label :menu_tax, "メニュー消費税表記*", class:"label"
+              = f.collection_select(:menu_tax_id, MenuTax.all, :id, :menu_tax, {prompt: "選択して下さい"}, {class:'form-box'})
+
+
+          .posting_info--restaurant_comment
+            = f.fields_for :comment do |comment|
+              #comment_description
+                = comment.label :description, "コメント*", class: "label"
                 %br
-                = contact.text_field :name, value:@user.name, class: "form_box"
-                %br
+                = comment.text_area :description, placeholder: "テイクアウトを始めたきっかけ・取り組んでいること・おすすめメニューなどのPR内容を自由にご入力ください。", class: 'form_box_exp'
               
-              #email
-                = contact.label :email, "メールアドレス*", class: "label"
+              #comment_image
+                = comment.label :image_url, "掲載写真*", class: "label"
                 %br
-                = contact.text_field :email, value:@user.email, class: "form_box"
-                %br
+                = comment.file_field :image_url, class: "image_file"
 
-              #phone_number
-                = contact.label :phone_number, "ご連絡先電話番号*", class: "label"
+              #comment_video
+                = comment.label :video_url, "掲載動画", class: "label"
                 %br
-                = contact.text_field :phone_number, value:@user.phone_number, class: "form_box"
-                %br
+                = comment.text_field :video_url, placeholder: "掲載したいyoutube動画のURLを貼りつけて下さい", class: "form_box"
+                .additional_explanation
+                掲載動画はyoutubeへ既にアップロード済の動画のみに限らせていただきます。掲載したい動画のURLを貼りつけて下さい。
 
-          .resistration_info_submit
-            =f.submit '送信する', class:"send-btn"
+
+          .posting_info--restaurant_menu--images
+            #menu_images
+              メニュー写真*
+              %br
+              #previews
+                - if @restaurant.persisted?
+                  - @restaurant.menu_images.each_with_index do |image, i|
+                    = image_tag "#{image.image}", data: { index: i}, width: "100", height: '100'
+              = f.fields_for :menu_images do |image|
+                .js-file_group{"data-index" => "#{image.index}"}
+                  = image.file_field :url, class: 'js-file'
+                  %br
+                  %span.js-remove 削除
+                - if @restaurant.persisted?
+                  = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+              - if @restaurant.persisted?
+                .js-file_group{"data-index" => "#{@restaurant.menu_images.count}"}
+                  = file_field_tag :image, name: "restaurant[menu_images_attributes][#{@restaurant.menu_images.count}][image]", class: 'js-file'
+                  .js-remove 削除
+
+            .additional_explanation
+            メニュー写真は１枚必須、最大３枚まで掲載可能です。
+            %br
+            .more_information
+              = link_to '​サイズや掲載規程は、こちらからご確認下さい＞＞', '#'
+
+        .contact_info
+          ご担当者様情報
+          = f.fields_for :contact_information do |contact|
+            #name
+              = contact.label :name, "ご担当者名*", class: "label"
+              %br
+              = contact.text_field :name, value:@user.name, class: "form_box"
+              %br
+            
+            #email
+              = contact.label :email, "メールアドレス*", class: "label"
+              %br
+              = contact.text_field :email, value:@user.email, class: "form_box"
+              %br
+
+            #phone_number
+              = contact.label :phone_number, "ご連絡先電話番号*", class: "label"
+              %br
+              = contact.text_field :phone_number, value:@user.phone_number, class: "form_box"
+              %br
+
+        .resistration_info_submit
+          =f.submit '送信する', class:"send-btn"
+          
+= render partial: "footer"
