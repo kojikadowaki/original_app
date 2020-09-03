@@ -64,3 +64,13 @@
 |restaurant_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :restaurant
+
+## contact_informationsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|email|string|null: false|
+|phone_number|string|null: false|
+|restaurant_id|references|null: false, foreign_key: true|
+### Association
+- belongs_to :restaurant

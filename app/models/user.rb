@@ -3,7 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
+  has_many :restaurants, dependent: :destroy
+  
   VALID_PHONE_REGEX = /\A0\d{9,10}\z/
 
   validates :name, allow_blank: true, length: { maximum: 20 }
